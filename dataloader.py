@@ -62,7 +62,7 @@ class H5Dataset(BaseDataClass):
         Args:
             dataset (str): Dataset name.
             dir (str): Directory path.
-            partition (str): train, test, or pretrain.
+            partition (str): train, test, pretrain (all datasets), pretest, preval, cls_inc, data_inc (additional for ImageNet2K)
             transform (callable, optional): Transform to apply to the samples. Defaults to None.
 
         Raises:
@@ -109,9 +109,10 @@ class H5Dataset(BaseDataClass):
 
 
 if __name__ == "__main__":
-    BaseDataClass(dataset='CGLM', directory='/data/cl_datasets/files/CGLM/')
+    BaseDataClass(dataset='ImageNet2K',
+                  directory='/data/cl_datasets/files/ImageNet2K/')
 
     dataset = H5Dataset(
-        dataset='CGLM', directory="/data/cl_datasets/files/CGLM/", partition='pretrain')
+        dataset='ImageNet2K', directory="/data/cl_datasets/files/ImageNet2K/", partition='data_inc')
     print(len(dataset))
-    dataset[0][0].show()
+    dataset[1][0].show()

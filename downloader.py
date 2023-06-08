@@ -32,10 +32,10 @@ class CLDatasets:
 
             print("Dataset Selected:", dataset)
             self.download_order_files()
-            self.download_data_files()
+#            self.download_data_files()
 
-            if unzip:
-                self.unzip_data_files(self.directory+"/data")
+#            if unzip:
+#                self.unzip_data_files(self.directory+"/data")
 
     def download_order_files(self):
         """
