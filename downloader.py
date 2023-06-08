@@ -1,3 +1,4 @@
+import argparse
 import os
 import time
 import zipfile
@@ -121,5 +122,18 @@ class CLDatasets:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='Download datasets from Google Cloud Storage.')
+    parser.add_argument('--dataset', type=str, default='CGLM',
+                        help='The name of the dataset to download.')
+    parser.add_argument('--directory', type=str, default='/data/cl_datasets/files/CGLM/',
+                        help='The directory where the dataset will be saved.')
+    parser.add_argument('--unzip', action='store_true',
+                        help='Whether to unzip the downloaded files.')
+
+    args = parser.parse_args()
+
     gcp_cl_datasets = CLDatasets(
-        dataset='ImageNet2K', directory='/data/cl_datasets/files/ImageNet2K/')
+        dataset=args.dataset,
+        directory=args.directory,
+        unzip=args.unzip)
