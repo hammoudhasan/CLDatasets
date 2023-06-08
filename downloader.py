@@ -1,8 +1,9 @@
-import time
 import os
-from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor
+import time
 import zipfile
+from concurrent.futures import ThreadPoolExecutor
+
+from tqdm import tqdm
 
 
 class CLDatasets:
