@@ -14,10 +14,7 @@ Welcome to the Continual Learning Datasets repository! Here, we aim to make larg
 
 ## Introduction 🌟
 
-In the world of continual learning, obtaining and working with large-scale datasets can be a challenging task. Our Continual Learning Datasets repository addresses the following issues faced by researchers and practitioners:
-
-1. **Complex Setup**: Setting up large-scale continual learning datasets can often be cumbersome and involve complicated processing steps.
-2. **Data Disappearance**: Some datasets, such as the CLOC dataset's Flickr samples, might disappear from the servers, making it difficult to access and study them.
+In the world of continual learning, obtaining and working with large-scale datasets can be a challenging task. Our Continual Learning Datasets repository addresses the following issues faced by researchers and practitioners: Setting up large-scale continual learning datasets can often be cumbersome and involve complicated processing steps.
 
 To make your journey smoother, we provide an easy-to-use solution for downloading and working with three prominent continual learning datasets: CLOC, CGLM, and ImageNet2K. These datasets offer a rich variety of real-world scenarios to explore and develop continual learning algorithms.
 
