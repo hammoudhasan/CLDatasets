@@ -88,7 +88,7 @@ This initiative is part of our work found [here](https://arxiv.org/abs/2305.0927
 
 Additionally, when using the individual datasets, please cite the relevant works that proposed them:
 
-For CLOC:
+**For CLOC:**
 ```
 @InProceedings{Cai_2021_ICCV,
     author    = {Cai, Zhipeng and Sener, Ozan and Koltun, Vladlen},
@@ -100,7 +100,7 @@ For CLOC:
 }
 ```
 
-For CGLM:
+**For CGLM:**
 ```
 @InProceedings{Prabhu_2023_CVPR,
     author    = {Prabhu, Ameya and Al Kader Hammoud, Hasan Abed and Dokania, Puneet K. and Torr, Philip H.S. and Lim, Ser-Nam and Ghanem, Bernard and Bibi, Adel},
@@ -110,7 +110,8 @@ For CGLM:
     year      = {2023},
     pages     = {3698-3707}
 }
-
+```
+```
 @article{prabhu2023online,
   title={Online Continual Learning Without the Storage Constraint},
   author={Prabhu, Ameya and Cai, Zhipeng and Dokania, Puneet and Torr, Philip and Koltun, Vladlen and Sener, Ozan},
@@ -119,7 +120,7 @@ For CGLM:
 }
 ```
 
-For ImageNet2K:
+**For ImageNet2K:**
 ```
 @InProceedings{Prabhu_2023_CVPR,
     author    = {Prabhu, Ameya and Al Kader Hammoud, Hasan Abed and Dokania, Puneet K. and Torr, Philip H.S. and Lim, Ser-Nam and Ghanem, Bernard and Bibi, Adel},
