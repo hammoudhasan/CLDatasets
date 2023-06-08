@@ -133,6 +133,14 @@ Additionally, when using the individual datasets, please cite the relevant works
 
 Contributions are welcome and appreciated! If you have any ideas, suggestions, or improvements, please open an issue or submit a pull request. Together, let's make continual learning more accessible and exciting for everyone!
 
+## License
+
+The datasets utilized in this project, namely ImageNet, CLOC, and CGLM, are subject to their respective original licensing terms. These datasets are provided for research purposes only, and you must adhere to the original licensing requirements set forth by their respective owners.
+
+Modifying, redistributing, or sublicensing any part of the ImageNet, CLOC, or CGLM datasets without explicit permission from the original dataset owners is strictly prohibited.
+
+Please refer to the individual dataset sources and their respective licenses for more details on the permissions and restrictions associated with each dataset.
+
 ---
 
 Let's embark on a continual learning journey! If you have any questions or need further assistance, feel free to reach out. Happy learning! 🚀✨
