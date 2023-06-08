@@ -69,12 +69,25 @@ class CLDatasets:
         Returns:
             None
         """
-        zip_files = [file for file in os.listdir(
-            directory) if file.endswith('.zip')]
+        if self.dataset == 'ImageNet2K':
+            zip_files = []
+            for root, dirs, files in os.walk(directory):
+                for file in files:
+                    if file.endswith('.zip'):
+                        zip_files.append(os.path.join(root, file))
+        else:
+            zip_files = [file for file in os.listdir(
+                directory) if file.endswith('.zip')]
 
         def extract_single_zip(zip_file: str) -> None:
-            zip_path = os.path.join(directory, zip_file)
-            output_dir = os.path.join(directory, os.path.splitext(zip_file)[0])
+            if self.dataset == 'ImageNet2K':
+                zip_path = zip_file
+                output_dir = os.path.splitext(zip_file)[0]
+            else:
+                zip_path = os.path.join(directory, zip_file)
+                output_dir = os.path.join(
+                    directory, os.path.splitext(zip_file)[0])
+
             os.makedirs(output_dir, exist_ok=True)
 
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
@@ -92,10 +105,21 @@ class CLDatasets:
                 future.result()
 
         # Remove zip files
-        remove_command = f"rm {self.directory}/data/*.zip"
-        os.system(remove_command)
+        if self.dataset == 'ImageNet2K':
+            remove_command = f"rm {self.directory}/data/train/*.zip"
+            os.system(remove_command)
+
+            remove_command = f"rm {self.directory}/data/val/*.zip"
+            os.system(remove_command)
+
+            remove_command = f"rm {self.directory}/data/test/*.zip"
+            os.system(remove_command)
+
+        else:
+            remove_command = f"rm {self.directory}/data/*.zip"
+            os.system(remove_command)
 
 
 if __name__ == "__main__":
     gcp_cl_datasets = CLDatasets(
-        dataset='CGLM', directory='/data/cl_datasets/files/CGLM/')
+        dataset='ImageNet2K', directory='/data/cl_datasets/files/ImageNet2K/')
