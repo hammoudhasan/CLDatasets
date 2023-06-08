@@ -83,7 +83,7 @@ This initiative is part of our work found [here](https://arxiv.org/abs/2305.0927
 
 ## Citing Relevant Works 🔍
 
-Additionally, when using the individual datasets, please cite the relevant works that proposed them:
+Additionally, when using the individual datasets, please cite the relevant works:
 
 **For CLOC:**
 ```
