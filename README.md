@@ -97,6 +97,18 @@ Additionally, when using the individual datasets, please cite the relevant works
 }
 ```
 
+_Suggestion: You could also cite:_
+
+```
+@inproceedings{ghunaim2023real,
+  title={Real-time evaluation in online continual learning: A new hope},
+  author={Ghunaim, Yasir and Bibi, Adel and Alhamoud, Kumail and Alfarra, Motasem and Al Kader Hammoud, Hasan Abed and Prabhu, Ameya and Torr, Philip HS and Ghanem, Bernard},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={11888--11897},
+  year={2023}
+}
+```
+
 **For CGLM:**
 ```
 @InProceedings{Prabhu_2023_CVPR,
@@ -128,6 +140,7 @@ Additionally, when using the individual datasets, please cite the relevant works
     pages     = {3698-3707}
 }
 ```
+
 
 ## Contributing 🤝
 
