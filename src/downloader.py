@@ -32,33 +32,22 @@ class CLDatasets:
                 os.makedirs(os.path.join(self.directory, 'data'))
 
             print("Dataset Selected:", dataset)
-            self.download_order_files()
-            self.download_data_files()
+            self.download_dataset()
 
             if unzip:
                 self.unzip_data_files(self.directory+"/data")
 
-    def download_order_files(self):
+    def download_dataset(self):
         """
         Download the order files from Google Cloud Storage.
         """
         print("Order files are being downloaded...")
         start_time = time.time()
-        download_command = f"gsutil -m cp gs://cl-datasets/{self.dataset}/order_files/* {self.directory}/order_files/ "
+        download_command = f"gsutil -m cp -r gs://cl-datasets/{self.dataset} {self.directory}/"
         os.system(download_command)
         elapsed_time = time.time() - start_time
         print("Elapsed time:", elapsed_time)
-
-    def download_data_files(self):
-        """
-        Download the data files from Google Cloud Storage.
-        """
-        print("Data files are being downloaded...")
-        start_time = time.time()
-        download_command = f"gsutil -m cp -r gs://cl-datasets/{self.dataset}/data/* {self.directory}/data/ "
-        os.system(download_command)
-        elapsed_time = time.time() - start_time
-        print("Elapsed time:", elapsed_time)
+        
 
     def unzip_data_files(self, directory: str) -> None:
         """
