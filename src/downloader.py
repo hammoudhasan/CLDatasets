@@ -95,17 +95,17 @@ class CLDatasets:
 
         # Remove zip files
         if self.dataset == 'ImageNet2K':
-            remove_command = f"rm {self.directory}/data/train/*.zip"
+            remove_command = f"rm {self.directory}/{self.dataset}/data/train/*.zip"
             os.system(remove_command)
 
-            remove_command = f"rm {self.directory}/data/val/*.zip"
+            remove_command = f"rm {self.directory}/{self.dataset}/data/val/*.zip"
             os.system(remove_command)
 
-            remove_command = f"rm {self.directory}/data/test/*.zip"
+            remove_command = f"rm {self.directory}/{self.dataset}/data/test/*.zip"
             os.system(remove_command)
 
         else:
-            remove_command = f"rm {self.directory}/data/*.zip"
+            remove_command = f"rm {self.directory}/{self.dataset}/data/*.zip"
             os.system(remove_command)
 
 
