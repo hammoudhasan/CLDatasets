@@ -46,7 +46,6 @@ class CLDatasets:
         os.system(download_command)
         elapsed_time = time.time() - start_time
         print("Elapsed time:", elapsed_time)
-        
 
     def unzip_data_files(self, directory: str) -> None:
         """
@@ -58,24 +57,15 @@ class CLDatasets:
         Returns:
             None
         """
-        if self.dataset == 'ImageNet2K':
-            zip_files = []
-            for root, dirs, files in os.walk(directory):
-                for file in files:
-                    if file.endswith('.zip'):
-                        zip_files.append(os.path.join(root, file))
-        else:
-            zip_files = [file for file in os.listdir(
-                directory) if file.endswith('.zip')]
+
+        zip_files = [file for file in os.listdir(
+            directory) if file.endswith('.zip')]
 
         def extract_single_zip(zip_file: str) -> None:
-            if self.dataset == 'ImageNet2K':
-                zip_path = zip_file
-                output_dir = os.path.splitext(zip_file)[0]
-            else:
-                zip_path = os.path.join(directory, zip_file)
-                output_dir = os.path.join(
-                    directory, os.path.splitext(zip_file)[0])
+
+            zip_path = os.path.join(directory, zip_file)
+            output_dir = os.path.join(
+                directory, os.path.splitext(zip_file)[0])
 
             os.makedirs(output_dir, exist_ok=True)
 
@@ -94,19 +84,9 @@ class CLDatasets:
                 future.result()
 
         # Remove zip files
-        if self.dataset == 'ImageNet2K':
-            remove_command = f"rm {self.directory}/{self.dataset}/data/train/*.zip"
-            os.system(remove_command)
 
-            remove_command = f"rm {self.directory}/{self.dataset}/data/val/*.zip"
-            os.system(remove_command)
-
-            remove_command = f"rm {self.directory}/{self.dataset}/data/test/*.zip"
-            os.system(remove_command)
-
-        else:
-            remove_command = f"rm {self.directory}/{self.dataset}/data/*.zip"
-            os.system(remove_command)
+        remove_command = f"rm {self.directory}/{self.dataset}/data/*.zip"
+        os.system(remove_command)
 
 
 if __name__ == "__main__":
