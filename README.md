@@ -39,29 +39,35 @@ The repository is structured as follows:
 
 To get started with Continual Learning Datasets, follow these simple steps:
 
+0. Install GCloud and Authenticate by following instructions [here](https://cloud.google.com/sdk/docs/downloads-interactive). For linux:
+```
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+gcloud init
+```
 
-0. Create authentication credentials for your Google Account:
-   ```bash
-   gcloud auth application-default login
-   ```
+1. Install other requirements by running:
+```
+pip install tqdm h5py Pillow
+```
 
-1. Clone the repository to your local machine using the following command:
-   ```bash
-   git clone https://github.com/hammoudhasan/CLDatasets.git
-   ```
-2. Navigate to the `src` directory:
-   ```bash
-   cd CLDatasets/src
-   ```
+2. Clone the repository to your local machine using the following command:
+```bash
+git clone https://github.com/hammoudhasan/CLDatasets.git
+```
+3. Navigate to the `src` directory:
+```bash
+cd CLDatasets/src
+```
 3. Use the `downloader.py` script to download your desired dataset. Open your terminal and run the following command:
-   ```bash
-   python downloader.py --dataset=<dataset_name> --directory=<directory> --unzip
-   ```
+```bash
+python downloader.py --dataset=<dataset_name> --directory=<directory> --unzip
+```
    Replace `<dataset_name>` with either `CLOC`, `CGLM`, or `ImageNet2K`, depending on the dataset you want to download. `<directory>` should be the path where you want to store the dataset. Additionally, you can include the `--unzip` flag to automatically extract the downloaded files, which is recommended.
 
    Here's an example of how you could use the script to download the CLOC dataset:
    ```bash
-   python downloader.py --dataset='CLOC' --directory='/data/cl_datasets/files/ImageNet2K/' --unzip
+   python downloader.py --dataset='CLOC' --directory='/data/cl_datasets/' --unzip
    ```
 
 4. Once downloaded, you can use `dataloader.py` to easily incorporate the dataset into your code.
@@ -77,9 +83,7 @@ This initiative is part of our work found [here](https://arxiv.org/abs/2305.0927
 ```
 @misc{hammoud2023rapid,
       title={Rapid Adaptation in Online Continual Learning: Are We Evaluating It Right?}, 
-      author={Hasan Abed Al Kader Hammoud and Ameya Prabhu and Ser-Nam Lim and Philip H. S. Torr and Adel Bibi and Bernard Ghanem
-
-},
+      author={Hasan Abed Al Kader Hammoud and Ameya Prabhu and Ser-Nam Lim and Philip H. S. Torr and Adel Bibi and Bernard Ghanem},
       year={2023},
       eprint={2305.09275},
       archivePrefix={arXiv},
@@ -97,7 +101,6 @@ Additionally, when using the individual datasets, please cite the relevant works
     author    = {Cai, Zhipeng and Sener, Ozan and Koltun, Vladlen},
     title     = {Online Continual Learning With Natural Distribution Shifts: An Empirical Study With Visual Data},
     booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-    month     = {October},
     year      = {2021},
     pages     = {8281-8290}
 }
@@ -121,7 +124,6 @@ _Suggestion: You could also cite:_
     author    = {Prabhu, Ameya and Al Kader Hammoud, Hasan Abed and Dokania, Puneet K. and Torr, Philip H.S. and Lim, Ser-Nam and Ghanem, Bernard and Bibi, Adel},
     title     = {Computationally Budgeted Continual Learning: What Does Matter?},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
     year      = {2023},
     pages     = {3698-3707}
 }
@@ -141,7 +143,6 @@ _Suggestion: You could also cite:_
     author    = {Prabhu, Ameya and Al Kader Hammoud, Hasan Abed and Dokania, Puneet K. and Torr, Philip H.S. and Lim, Ser-Nam and Ghanem, Bernard and Bibi, Adel},
     title     = {Computationally Budgeted Continual Learning: What Does Matter?},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
     year      = {2023},
     pages     = {3698-3707}
 }
