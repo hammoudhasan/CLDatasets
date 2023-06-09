@@ -97,7 +97,7 @@ Additionally, when using the individual datasets, please cite the relevant works
 
 **For CLOC:**
 ```
-@InProceedings{Cai_2021_ICCV,
+@InProceedings{cai2021online,
     author    = {Cai, Zhipeng and Sener, Ozan and Koltun, Vladlen},
     title     = {Online Continual Learning With Natural Distribution Shifts: An Empirical Study With Visual Data},
     booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
@@ -120,7 +120,7 @@ _Suggestion: You could also cite:_
 
 **For CGLM:**
 ```
-@InProceedings{Prabhu_2023_CVPR,
+@InProceedings{prabhu2023computationally,
     author    = {Prabhu, Ameya and Al Kader Hammoud, Hasan Abed and Dokania, Puneet K. and Torr, Philip H.S. and Lim, Ser-Nam and Ghanem, Bernard and Bibi, Adel},
     title     = {Computationally Budgeted Continual Learning: What Does Matter?},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
@@ -139,7 +139,7 @@ _Suggestion: You could also cite:_
 
 **For ImageNet2K:**
 ```
-@InProceedings{Prabhu_2023_CVPR,
+@InProceedings{prabhu2023computationally,
     author    = {Prabhu, Ameya and Al Kader Hammoud, Hasan Abed and Dokania, Puneet K. and Torr, Philip H.S. and Lim, Ser-Nam and Ghanem, Bernard and Bibi, Adel},
     title     = {Computationally Budgeted Continual Learning: What Does Matter?},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
