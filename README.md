@@ -39,6 +39,12 @@ The repository is structured as follows:
 
 To get started with Continual Learning Datasets, follow these simple steps:
 
+
+0. Create authentication credentials for your Google Account:
+   ```bash
+   gcloud auth application-default login
+   ```
+
 1. Clone the repository to your local machine using the following command:
    ```bash
    git clone https://github.com/hammoudhasan/CLDatasets.git
