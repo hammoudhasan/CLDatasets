@@ -120,20 +120,22 @@ _Suggestion: You could also cite:_
 
 **For CGLM:**
 ```
+@article{prabhu2023online,
+  title={Online Continual Learning Without the Storage Constraint},
+  author={Prabhu, Ameya and Cai, Zhipeng and Dokania, Puneet and Torr, Philip and Koltun, Vladlen and Sener, Ozan},
+  journal={arXiv preprint arXiv:2305.09253},
+  year={2023}
+}
+```
+
+_Suggestion: You could also cite:_
+```
 @InProceedings{prabhu2023computationally,
     author    = {Prabhu, Ameya and Al Kader Hammoud, Hasan Abed and Dokania, Puneet K. and Torr, Philip H.S. and Lim, Ser-Nam and Ghanem, Bernard and Bibi, Adel},
     title     = {Computationally Budgeted Continual Learning: What Does Matter?},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     year      = {2023},
     pages     = {3698-3707}
-}
-```
-```
-@article{prabhu2023online,
-  title={Online Continual Learning Without the Storage Constraint},
-  author={Prabhu, Ameya and Cai, Zhipeng and Dokania, Puneet and Torr, Philip and Koltun, Vladlen and Sener, Ozan},
-  journal={arXiv preprint arXiv:2305.09253},
-  year={2023}
 }
 ```
 
