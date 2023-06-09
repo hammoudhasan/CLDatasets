@@ -28,8 +28,7 @@ class CLDatasets:
             self.directory = directory
 
             if not os.path.exists(self.directory):
-                os.makedirs(os.path.join(self.directory, 'order_files'))
-                os.makedirs(os.path.join(self.directory, 'data'))
+                os.makedirs(self.directory)
 
             print("Dataset Selected:", dataset)
             self.download_dataset()
