@@ -2,6 +2,13 @@
 
 Welcome to the Continual Learning Datasets repository! Here, we aim to make large-scale continual learning datasets easily accessible for everyone. Our repository provides a convenient way to download three large scale diverse datasets: CLOC, CGLM, and ImageNet2K. Feel free to explore, experiment, and contribute to our repo!
 
+
+<p align="center">
+  <img src="https://github.com/hammoudhasan/CLDatasets/assets/74360386/b00e4627-0f4e-4e89-9e5a-aa1316be8f77" alt="test6" width="450">
+</p>
+
+
+
 ## Table of Contents 📋
 
 - [Introduction](#introduction)
