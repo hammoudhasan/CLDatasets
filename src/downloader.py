@@ -34,7 +34,7 @@ class CLDatasets:
             self.download_dataset()
 
             if unzip:
-                self.unzip_data_files(self.directory+"/data")
+                self.unzip_data_files(self.directory+f"/{self.dataset}/data")
 
     def download_dataset(self):
         """
