@@ -91,7 +91,7 @@ class H5Dataset(BaseDataClass):
         img_path = self.directory + '/data/' + \
             self.image_paths[index].decode("utf-8").strip()
         label = self.labels[index]
-        sample = Image.open(img_path)
+        sample = pil_loader(img_path)
 
         if self.transform is not None:
             sample = self.transform(sample)
@@ -106,6 +106,13 @@ class H5Dataset(BaseDataClass):
             int: Length of the dataset.
         """
         return len(self.image_paths)
+
+
+def pil_loader(path: str) -> Image.Image:
+    # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
+    with open(path, "rb") as f:
+        img = Image.open(f)
+        return img.convert("RGB")
 
 
 if __name__ == "__main__":
