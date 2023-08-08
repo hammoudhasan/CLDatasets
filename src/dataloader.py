@@ -119,20 +119,31 @@ def list_missing(split):
     from concurrent.futures import ThreadPoolExecutor
     from functools import partial
 
-    def check_path_exists(dataset, i):
-        if not os.path.exists(dataset.directory + '/data/' + dataset.image_paths[i].decode("utf-8").strip()):
-            return i, dataset.image_paths[i].decode("utf-8").strip()
-        elif dataset.image_paths[i].decode("utf-8").strip() == "":
-            return i, "<empty>"
-        else:
-            return None
+    def check_path_exists(dataset, start_idx, end_idx):
+        for i in range(start_idx, end_idx):
+            if not os.path.exists(dataset.directory + '/data/' + dataset.image_paths[i].decode("utf-8").strip()):
+                raise Exception("Path not found", dataset.directory + '/data/' + dataset.image_paths[i].decode("utf-8").strip())
+        
 
     # with ThreadPoolExecutor(max_workers=32) as executor:
     #     missing_paths = list(tqdm.tqdm(executor.map(partial(check_path_exists, dataset), range(len(dataset))), total=len(dataset)))
+
+    # add tqdm
     missing_paths = []
-    for i in tqdm.tqdm(range(len(dataset))):
-        missing_paths.append(check_path_exists(dataset, i))
+    with ThreadPoolExecutor(max_workers=32) as executor, tqdm.tqdm(total=len(dataset)) as pbar:
+        futures_list = []
+        chunk_size = 1000
+        for i in range(0, len(dataset), chunk_size):
+            future = executor.submit(partial(check_path_exists, dataset, i, min(i+chunk_size, len(dataset))))
+            future.add_done_callback(lambda p: pbar.update())
+            futures_list.append(future)
+
+        for future in futures_list:
+            result = future.result()
+            missing_paths.append(result)
         
+        
+    
 
     f = open(f"CGLM_{split}_missing_paths.txt", "w")
     
