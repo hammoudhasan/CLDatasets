@@ -127,8 +127,12 @@ def list_missing(split):
         else:
             return None
 
-    with ThreadPoolExecutor(max_workers=32) as executor:
-        missing_paths = list(tqdm.tqdm(executor.map(partial(check_path_exists, dataset), range(len(dataset))), total=len(dataset)))
+    # with ThreadPoolExecutor(max_workers=32) as executor:
+    #     missing_paths = list(tqdm.tqdm(executor.map(partial(check_path_exists, dataset), range(len(dataset))), total=len(dataset)))
+    missing_paths = []
+    for i in tqdm.tqdm(range(len(dataset))):
+        missing_paths.append(check_path_exists(dataset, i))
+        
 
     f = open(f"CGLM_{split}_missing_paths.txt", "w")
     
