@@ -46,16 +46,9 @@ The repository is structured as follows:
 
 To get started with Continual Learning Datasets, follow these simple steps:
 
-0. Install GCloud and Authenticate by following instructions [here](https://cloud.google.com/sdk/docs/downloads-interactive). For linux:
-```
-curl https://sdk.cloud.google.com | bash
-exec -l $SHELL
-gcloud init
-```
-
 1. Install other requirements by running:
 ```
-pip install tqdm h5py Pillow
+pip install tqdm h5py Pillow datasets
 ```
 
 2. Clone the repository to your local machine using the following command:
@@ -79,7 +72,8 @@ python downloader.py --dataset=<dataset_name> --directory=<directory> --unzip
 
 4. Once downloaded, you can use `dataloader.py` to easily incorporate the dataset into your code.
 
-Note that our data could also be found on [this](https://console.cloud.google.com/storage/browser/cl-datasets) GCP Bucket.
+Note that datasets could also be found on [this link](https://huggingface.co/datasets/hammh0a/CGLM)  for CGLM, [this link](https://huggingface.co/datasets/hammh0a/CLOC) for CLOC and [this link](https://huggingface.co/datasets/hammh0a/ImageNet2K) for ImageNet-2K dataset.
+
 ****
 Feel free to explore the repository further and adapt the code to suit your specific requirements.
 
