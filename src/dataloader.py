@@ -1,6 +1,6 @@
 import os
 from typing import Callable, Optional, Tuple
-
+import tqdm
 import h5py
 from PIL import Image
 
@@ -91,7 +91,7 @@ class H5Dataset(BaseDataClass):
         img_path = self.directory + '/data/' + \
             self.image_paths[index].decode("utf-8").strip()
         label = self.labels[index]
-        sample = pil_loader(img_path)
+        sample = Image.open(img_path)
 
         if self.transform is not None:
             sample = self.transform(sample)
@@ -108,18 +108,72 @@ class H5Dataset(BaseDataClass):
         return len(self.image_paths)
 
 
-def pil_loader(path: str) -> Image.Image:
-    # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
-    with open(path, "rb") as f:
-        img = Image.open(f)
-        return img.convert("RGB")
+def list_missing(split):
+    dataset = H5Dataset(
+        dataset="CGLM",
+        directory="/export/work/cbotos/cldatasets/CGLM/",
+        partition=split,
+    )
+    print(len(dataset))
 
+    from concurrent.futures import ThreadPoolExecutor
+    from functools import partial
+
+    def check_path_exists(dataset, start_idx, end_idx):
+        for i in range(start_idx, end_idx):
+            if not os.path.exists(dataset.directory + '/data/' + dataset.image_paths[i].decode("utf-8").strip()):
+                raise Exception("Path not found", dataset.directory + '/data/' + dataset.image_paths[i].decode("utf-8").strip())
+        
+
+    # with ThreadPoolExecutor(max_workers=32) as executor:
+    #     missing_paths = list(tqdm.tqdm(executor.map(partial(check_path_exists, dataset), range(len(dataset))), total=len(dataset)))
+
+    # add tqdm
+    missing_paths = []
+    with ThreadPoolExecutor(max_workers=32) as executor, tqdm.tqdm(total=len(dataset)) as pbar:
+        futures_list = []
+        chunk_size = 1000
+        for i in range(0, len(dataset), chunk_size):
+            future = executor.submit(partial(check_path_exists, dataset, i, min(i+chunk_size, len(dataset))))
+            future.add_done_callback(lambda p: pbar.update())
+            futures_list.append(future)
+
+        for future in futures_list:
+            result = future.result()
+            missing_paths.append(result)
+        
+        
+    
+
+    f = open(f"CGLM_{split}_missing_paths.txt", "w")
+    
+    for i in missing_paths:
+        if i is not None:
+            print(f"{i[0]},{i[1]}", file=f)
+    
+    f.close()
+
+
+    
+    
 
 if __name__ == "__main__":
-    BaseDataClass(dataset='ImageNet2K',
-                  directory='/data/cl_datasets/files/ImageNet2K/')
+    # BaseDataClass(dataset='ImageNet2K',
+    #               directory='/data/cl_datasets/files/ImageNet2K/')
 
     dataset = H5Dataset(
         dataset='ImageNet2K', directory="/data/cl_datasets/files/ImageNet2K/", partition='data_inc')
-    print(len(dataset))
-    dataset[1][0].show()
+
+    for split in ['train', 'test', 'pretrain', 'pretest', 'preval', 'cls_inc', 'data_inc']:
+        print(split)
+        try:
+            list_missing(split)
+        except Exception as e:
+            print(e)
+            continue
+
+    # dataset = H5Dataset(
+    #     dataset="CLOC",
+    #     directory="/export/work/cbotos/cldatasets/CLOC/",
+    #     partition="train",
+    # )
